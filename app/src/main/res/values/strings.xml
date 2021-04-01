@@ -1,44 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="tv_inf">  С помощью калькулятора выберите необходимую конфигурацию
-        облачного сервера и получите его стоимость. Если Вы не можете самостоятельно
-        подобрать конфигурацию – свяжитесь с нами, мы поможем определиться с нужными параметрами.
 
-        Выбранную конфигурацию отправьте нам, воспользовавшись кнопкой «Заказать».</string>
-
-    <string name="rb_linux">OS Linux 10GD HDD</string>
-    <string name="rb_win">OS Windows 60GB HDD</string>
-
-    <string name="tv_max_cpu">макс. - 16 CPU</string>
-    <string name="tv_max_memory">макс. - 64 GB</string>
-    <string name="tv_max_hdd">макс. - 1000 GB</string>
-
-    <string name="tv_max_ex_internet_canal">1–100 Мбит/с</string>
-    <string name="tv_max_ex_add_IP4_address">1–10 шт.</string>
-    <string name="tv_max_ex_win_rights">1–150 пользователей</string>
-    <string name="tv_max_ex_remote_desktop">1–150 пользователей</string>
-    <string name="tv_max_ex_citrix_XenApp">1–150 пользователей</string>
-    <string name="tv_max_ex_office_standart">1–150 лицензий</string>
-    <string name="tv_max_ex_office_prof">1–150 лицензий</string>
-
-    <string name="tv_cpu">Процессор</string>
-    <string name="tv_memory">Память</string>
-    <string name="tv_hdd">Диск</string>
-    <string name="tv_canal">Канал</string>
     <string name="tv_head">TheCloud.ru</string>
-    <string name="extra_options">Дополнительные опции</string>
-
-    <string name="ex_internet_canal">Гарантированный канал связи в интернет</string>
-    <string name="ex_server_encryption">Шифрование сервера</string>
-    <string name="ex_add_IP4_address">Дополнительный IP4 адрес</string>
-    <string name="ex_win_rights">Windows Rights Management Services CAL</string>
-    <string name="ex_remote_desktop">Удалённый рабочий стол</string>
-    <string name="ex_citrix_XenApp">Публикация приложения Citrix XenApp</string>
-    <string name="ex_office_standart">Office Standard ALNG LicSAPk MVL SAL Corp. Standard</string>
-    <string name="ex_office_prof">Office Prof. Plus ALNG LicSAPk MVL SAL Corp. Standard</string>
 
     <string name="total">Итого:</string>
-    <string name="total_rub">руб. в месяц</string>
 
     <string name="login">Логин</string>
     <string name="password">Пароль</string>
@@ -61,16 +26,14 @@
     <string name="password_new">Новый пароль</string>
     <string name="password_change">Подтверждение пароля</string>
     <string name="save">Сохранить изменения</string>
-    <string name="admin">Права администратора</string>
-    <string name="date_add_user">Дата добавления пользователя:</string>
-    <string name="params">Параметры пользователя:</string>
 
     <string name="button_registration">Зарегистрироваться</string>
     <string name="button_log_in">Войти</string>
-    <string name="button_order">Заказать</string>
     <string name="button_back">Назад</string>
 
     <string name="tv_rub">руб.</string>
-
+    <string name="title_activity_navigation">MainActivity</string>
+    <string name="title_company">Компании</string>
+    <string name="title_cabinet">Личный кабинет</string>
 
 </resources>

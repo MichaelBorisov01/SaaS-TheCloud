@@ -1,0 +1,17 @@
+{
+  "name": "CSQ-server",
+  "schemaPath": "app/src/main/graphql/schema.json",
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "http://192.168.0.105:8080/csq-api",
+        "headers": {
+          "user-agent": "JS GraphQL",
+          "Authorized": "yes",
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBdXRoZW50aWNhdGlvbiIsImlzcyI6IkNsaWVudCIsImV4cCI6MTYxNjkyMjgxOCwiZW1haWwiOiJHYWNna292c2t5LmRhbmlsQG1haWwucnUsIG5hbWU90JPQsNGH0LrQvtCy0YHQutC40Lkg0JTQsNC90LjQuNC7In0.IdUpp6ebK8vuQs3eT6HdrmubVZfuECnuD1YjLthieZwg7bx_BgTlz7ttmCkrt4QoAgT25_g4-2CxnblGpTzSQg"
+        },
+        "introspect": true
+      }
+    }
+  }
+}
