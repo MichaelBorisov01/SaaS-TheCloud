@@ -7,7 +7,7 @@ import okhttp3.Request
 
 class NetworkService {
 
-    private val BASE_URL: String = "http://192.168.0.105:8080"
+    private val BASE_URL: String = "http://192.168.0.105:8080/csq-api"
 
     fun getApolloClient(): ApolloClient {
         val okHttp = OkHttpClient
@@ -21,7 +21,6 @@ class NetworkService {
     }
 
     fun getApolloClientWithTokenInterceptor(token: String): ApolloClient {
-
         val httpClient = OkHttpClient.Builder()
             .addInterceptor(Interceptor { chain: Interceptor.Chain ->
                 val original: Request = chain.request()
@@ -30,7 +29,9 @@ class NetworkService {
                     .newBuilder()
                     .method(original.method, original.body)
 
-                builder.header("Authorization", "Bearer $token")
+                builder
+                    .header("Authorization", "Bearer $token")
+                    .addHeader("Authorized", "yes")
                 return@Interceptor chain.proceed(builder.build())
             })
             .build()
@@ -40,6 +41,7 @@ class NetworkService {
             .okHttpClient(httpClient)
             .build()
     }
+
 
     companion object {
         private var mInstance: NetworkService? = null
