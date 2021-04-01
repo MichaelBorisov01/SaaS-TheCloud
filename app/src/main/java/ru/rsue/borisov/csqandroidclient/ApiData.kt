@@ -20,7 +20,7 @@ class NetworkService {
             .build()
     }
 
-    fun getApolloClientWithTokenInterceptor(token: String): ApolloClient {
+    fun getApolloClientWithTokenInterceptor(token: String, auth: String): ApolloClient {
         val httpClient = OkHttpClient.Builder()
             .addInterceptor(Interceptor { chain: Interceptor.Chain ->
                 val original: Request = chain.request()
@@ -31,7 +31,7 @@ class NetworkService {
 
                 builder
                     .header("Authorization", "Bearer $token")
-                    .addHeader("Authorized", "yes")
+                    .addHeader("Authorized", auth)
                 return@Interceptor chain.proceed(builder.build())
             })
             .build()

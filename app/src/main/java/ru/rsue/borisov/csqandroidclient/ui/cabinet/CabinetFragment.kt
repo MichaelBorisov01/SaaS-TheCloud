@@ -22,7 +22,7 @@ class CabinetFragment : Fragment() {
         cabinetViewModel =
             ViewModelProvider(this).get(CabinetViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_cabinet, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
+        val textView: TextView = root.findViewById(R.id.text_cabinet)
         cabinetViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

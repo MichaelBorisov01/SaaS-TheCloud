@@ -32,8 +32,8 @@
     <string name="button_back">Назад</string>
 
     <string name="tv_rub">руб.</string>
-    <string name="title_activity_navigation">MainActivity</string>
     <string name="title_company">Компании</string>
     <string name="title_cabinet">Личный кабинет</string>
+    <string name="drag_me">Drag me</string>
 
 </resources>
