@@ -1,7 +1,9 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id("com.apollographql.apollo").version("2.5.3")
+    id 'kotlin-kapt'
+
+    id("com.apollographql.apollo").version("2.5.5")
 }
 
 apollo {
@@ -11,7 +13,7 @@ apollo {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "ru.rsue.borisov.csqandroidclient"
@@ -40,11 +42,10 @@ android {
 
 dependencies {
 
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3-native-mt'
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
+    implementation 'com.google.android.material:material:1.2.0-alpha06'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.4'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
@@ -54,17 +55,30 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.4'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // The core runtime dependencies
-    implementation("com.apollographql.apollo:apollo-runtime:2.5.3")
+    implementation("com.apollographql.apollo:apollo-runtime:2.5.5")
     // Coroutines extensions for easier asynchronicity handling
-    implementation("com.apollographql.apollo:apollo-coroutines-support:2.5.3")
+    implementation("com.apollographql.apollo:apollo-coroutines-support:2.5.5")
 
-    implementation("com.squareup.okhttp3:okhttp:4.9.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+    implementation('com.squareup.okhttp3:okhttp:5.0.0-alpha.2')
+    implementation('com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2')
 
     implementation 'me.jlurena:revolvingweekview:3.0.0'
+
+
+    def room_version = "2.2.6"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
+
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
 }

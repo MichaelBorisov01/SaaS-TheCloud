@@ -3,9 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/navigationActivity">
-    <activity
-        android:id="@+id/navigationActivity"
-        android:name="ru.rsue.borisov.csqandroidclient.NavigationActivity"
-        android:label="NavigationActivity" />
+    app:startDestination="@id/companyFragment">
+    <fragment
+        android:id="@+id/cabinetFragment"
+        android:name="ru.rsue.borisov.csqandroidclient.ui.cabinet.CabinetFragment"
+        android:label="@string/title_cabinet"
+        tools:layout="@layout/fragment_cabinet" />
+    <fragment
+        android:id="@+id/companyFragment"
+        android:name="ru.rsue.borisov.csqandroidclient.ui.company.CompanyFragment"
+        android:label="@string/title_company"
+        tools:layout="@layout/fragment_company" />
+    <fragment
+        android:id="@+id/userCalendarFragment"
+        android:name="ru.rsue.borisov.csqandroidclient.ui.user_calendar.UserCalendarFragment"
+        android:label="@string/user_calendar"
+        tools:layout="@layout/user_calendar_fragment" />
 </navigation>

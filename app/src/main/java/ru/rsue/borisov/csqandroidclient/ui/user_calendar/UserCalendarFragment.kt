@@ -1,59 +1,61 @@
-package ru.rsue.borisov.csqandroidclient
+package ru.rsue.borisov.csqandroidclient.ui.user_calendar
 
 import android.content.ClipData
 import android.graphics.Color
 import android.graphics.RectF
+import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.TypedValue
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
-import android.view.View.DragShadowBuilder
-import android.view.View.OnLongClickListener
+import android.view.*
+import androidx.fragment.app.Fragment
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.ColorInt
-import androidx.appcompat.app.AppCompatActivity
 import me.jlurena.revolvingweekview.DayTime
 import me.jlurena.revolvingweekview.WeekView
-import me.jlurena.revolvingweekview.WeekView.*
 import me.jlurena.revolvingweekview.WeekViewEvent
 import org.threeten.bp.DayOfWeek
 import org.threeten.bp.LocalDateTime
 import org.threeten.bp.format.TextStyle
+import ru.rsue.borisov.csqandroidclient.CalendarActivity
+import ru.rsue.borisov.csqandroidclient.R
 import java.util.*
+import me.jlurena.revolvingweekview.WeekView.*
 
 
-/**
- * This is a base activity which contains week view and all the codes necessary to initialize the
- * week view.
- */
-open class CalendarActivity : AppCompatActivity(), EventClickListener, WeekViewLoader,
+class UserCalendarFragment : Fragment(), EventClickListener, WeekViewLoader,
     EventLongPressListener, EmptyViewLongPressListener, EmptyViewClickListener,
     AddEventClickListener, DropListener {
+
+    private lateinit var viewModel: UserCalendarViewModel
     private lateinit var mWeekView: WeekView
-    private var mWeekViewType = TYPE_THREE_DAY_VIEW
+    private var mWeekViewType = CalendarActivity.TYPE_THREE_DAY_VIEW
     private fun getEventTitle(time: DayTime): String {
         return String.format(
             Locale.getDefault(), "Event of %s %02d:%02d", time.day.getDisplayName(
-                TextStyle.FULL, Locale.getDefault()
+                TextStyle.SHORT, Locale.getDefault()
             ), time.hour, time.minute
         )
     }
 
     override fun onAddEventClicked(startTime: DayTime, endTime: DayTime) {
-        Toast.makeText(this, "Add event clicked.", Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, "Add event clicked.", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.calendar)
-        val draggableView = findViewById<TextView>(R.id.draggable_view)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        viewModel =
+            ViewModelProvider(this).get(UserCalendarViewModel::class.java)
+        val root = inflater.inflate(R.layout.user_calendar_fragment, container, false)
+
+        val draggableView = root.findViewById<TextView>(R.id.draggable_view_user)
         draggableView.setOnLongClickListener(DragTapListener())
 
 
         // Get a reference for the week view in the layout.
-        mWeekView = findViewById(R.id.weekView)
+        mWeekView = root.findViewById(R.id.week_view_user)
 
         // Show a toast message about the touched event.
         mWeekView.setOnEventClickListener(this)
@@ -78,48 +80,62 @@ open class CalendarActivity : AppCompatActivity(), EventClickListener, WeekViewL
         mWeekView.setDropListener(this)
 
         //mWeekView.setAutoLimitTime(true)
-        //mWeekView.setLimitTime(8, 24)
+        //mWeekView.setLimitTime(4, 16)
 
         mWeekView.minTime = 8
         mWeekView.maxTime = 24
 
-        mWeekView.overlappingEventGap = 3
-
+        setHasOptionsMenu(true)
         // Set up a date time interpreter to interpret how the date and time will be formatted in
         // the week view. This is optional.
         //setupDateTimeInterpreter()
+        return inflater.inflate(R.layout.user_calendar_fragment, container, false)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.calendar_menu, menu)
-        return true
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        viewModel = ViewModelProvider(this).get(UserCalendarViewModel::class.java)
+        // TODO: Use the ViewModel
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.calendar_menu, menu)
+
     }
 
     override fun onDrop(view: View, day: DayTime) {
-        Toast.makeText(this, "View dropped to $day", Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, "View dropped to $day", Toast.LENGTH_SHORT).show()
     }
 
     // Функция события при нажатии на пустую ячейку
     override fun onEmptyViewClicked(day: DayTime) {
-
-        Toast.makeText(this, "Empty view" + " clicked: " + getEventTitle(day), Toast.LENGTH_SHORT)
+        Toast.makeText(
+            activity,
+            "Empty view" + " clicked: " + getEventTitle(day),
+            Toast.LENGTH_SHORT
+        )
             .show()
     }
 
     // Функция события при долгом нажатии на пустую ячейку
     override fun onEmptyViewLongPress(time: DayTime) {
-        Toast.makeText(this, "Empty view long pressed: " + getEventTitle(time), Toast.LENGTH_SHORT)
+        Toast.makeText(
+            activity,
+            "Empty view long pressed: " + getEventTitle(time),
+            Toast.LENGTH_SHORT
+        )
             .show()
     }
 
     // Функция события при нажатии на занятую ячейку
     override fun onEventClick(event: WeekViewEvent, eventRect: RectF) {
-        Toast.makeText(this, "Clicked $event", Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, "Clicked $event", Toast.LENGTH_SHORT).show()
     }
 
     // Функция события при долгом нажатии на занятую ячейку
     override fun onEventLongPress(event: WeekViewEvent, eventRect: RectF) {
-        Toast.makeText(this, "Long pressed event: " + event.name, Toast.LENGTH_SHORT).show()
+        Toast.makeText(activity, "Long pressed event: " + event.name, Toast.LENGTH_SHORT).show()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -222,34 +238,35 @@ open class CalendarActivity : AppCompatActivity(), EventClickListener, WeekViewL
 
     // Функция настройки времени, отображаемого слева от календаря
     private fun setupDateTimeInterpreter() {
-        mWeekView.dayTimeInterpreter = object : DayTimeInterpreter {
+        mWeekView.dayTimeInterpreter = object : WeekView.DayTimeInterpreter {
             override fun interpretDay(date: Int): String {
-                return DayOfWeek.of(date).getDisplayName(TextStyle.FULL, Locale.getDefault())
+                return DayOfWeek.of(date).getDisplayName(TextStyle.SHORT, Locale.getDefault())
             }
 
             override fun interpretTime(hour: Int, minutes: Int): String {
                 val strMinutes = String.format(Locale.getDefault(), "%02d", minutes)
                 return if (hour == 8) {
-                    (if (hour > 15) "8:$strMinutes" else (8 + hour).toString() + ":" + strMinutes)
+                    (if (hour > 23) "8:$strMinutes" else (8 + hour).toString() + ":" + strMinutes)
                 } else {
-                    (if (hour > 15) "8:$strMinutes" else (8 + hour).toString() + ":" + strMinutes)
+                    (if (hour > 23) "8:$strMinutes" else (8 + hour).toString() + ":" + strMinutes)
                 }
             }
         }
     }
 
-    private inner class DragTapListener : OnLongClickListener {
+    private inner class DragTapListener : View.OnLongClickListener {
         override fun onLongClick(v: View): Boolean {
             val data = ClipData.newPlainText("", "")
-            val shadowBuilder = DragShadowBuilder(v)
+            val shadowBuilder = View.DragShadowBuilder(v)
             v.startDragAndDrop(data, shadowBuilder, v, 0)
             return true
         }
     }
 
     companion object {
+        fun newInstance() = UserCalendarFragment()
         private const val TYPE_DAY_VIEW = 1
-        const val TYPE_THREE_DAY_VIEW = 2
+        private const val TYPE_THREE_DAY_VIEW = 2
         private const val TYPE_WEEK_VIEW = 3
         private val random = Random()
 
@@ -258,8 +275,6 @@ open class CalendarActivity : AppCompatActivity(), EventClickListener, WeekViewL
             return Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
         }
     }
+
+
 }
-
-
-
-

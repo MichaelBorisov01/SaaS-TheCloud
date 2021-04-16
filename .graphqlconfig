@@ -8,7 +8,7 @@
         "headers": {
           "user-agent": "JS GraphQL",
           "Authorized": "yes",
-          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBdXRoZW50aWNhdGlvbiIsImlzcyI6IkNsaWVudCIsImV4cCI6MTYxNjkyMjgxOCwiZW1haWwiOiJHYWNna292c2t5LmRhbmlsQG1haWwucnUsIG5hbWU90JPQsNGH0LrQvtCy0YHQutC40Lkg0JTQsNC90LjQuNC7In0.IdUpp6ebK8vuQs3eT6HdrmubVZfuECnuD1YjLthieZwg7bx_BgTlz7ttmCkrt4QoAgT25_g4-2CxnblGpTzSQg"
+          "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBdXRoZW50aWNhdGlvbiIsImlzcyI6IkNsaWVudCIsImVtYWlsIjoibWF0eWFzaC5kYW5pbEBtYWlsLnJ1In0.LO2Nj-TRFzwrmgO9-9HPmX2gYvZ5eXawPeypCSs-OXHPbc_n38kawdRK7osBnT1n0GXnCkcVKl1Y9I9cecxNZQ"
         },
         "introspect": true
       }

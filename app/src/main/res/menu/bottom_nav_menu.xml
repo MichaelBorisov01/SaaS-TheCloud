@@ -2,15 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_company"
+        android:id="@+id/companyFragment"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="@string/title_company" />
 
     <item
-        android:id="@+id/navigation_cabinet"
+        android:id="@+id/cabinetFragment"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="@string/title_cabinet" />
 
-
+    <item
+        android:id="@+id/userCalendarFragment"
+        android:icon="@drawable/ic_menu_gallery"
+        android:title="@string/user_calendar" />
 
 </menu>

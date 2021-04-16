@@ -1,7 +1,7 @@
 package ru.rsue.borisov.csqandroidclient
 
 
-import GetUserQuery
+import GetIdAndTokenQuery
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -10,9 +10,12 @@ import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
 import com.apollographql.apollo.ApolloCall
 import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.exception.ApolloException
+import ru.rsue.borisov.csqandroidclient.db.AppDatabase
+import ru.rsue.borisov.csqandroidclient.ui.user_calendar.NetworkService
 
 
 class LoginActivity : AppCompatActivity() {
@@ -37,53 +40,54 @@ class LoginActivity : AppCompatActivity() {
         mPasswordTextView = findViewById(R.id.tv_password)
 
         get()
+        val db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java, "database-name"
+        ).build()
+
+        val userDao = db.userDao()
+        //вставить id и token пользователя в БД
+        /*userDao.insertClientIdAndToken(
+
+            get()
+
+        )*/
     }
 
     private fun get() {
 
-        val token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBdXRoZW50aWNhdGlvbiIsIml" +
-                "zcyI6IkNsaWVudCIsImV4cCI6MTYxNzAxMzEyOSwiZW1haWwiOiJHYWNna292c2t5LmRhbmlsQG1" +
-                "haWwucnUifQ.Pz3hvbqrh1oqwGGD1WJ5s-dDNHRsR7gARwewHAJoDBlg4ZSEn9DS6Z_Ng3dwldar" +
-                "RroxoCZlKKpqOB1YuNROYg"
+        /* val token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBdXRoZW50aWNhdGlvbiIsIml" +
+                 "zcyI6IkNsaWVudCIsImV4cCI6MTYxNzAxMzEyOSwiZW1haWwiOiJHYWNna292c2t5LmRhbmlsQG1" +
+                 "haWwucnUifQ.Pz3hvbqrh1oqwGGD1WJ5s-dDNHRsR7gARwewHAJoDBlg4ZSEn9DS6Z_Ng3dwldar" +
+                 "RroxoCZlKKpqOB1YuNROYg"*/
 
-        val auth = "yes"
+        val auth = "no"
 
         val client = NetworkService.getInstance()
-            ?.getApolloClientWithTokenInterceptor(token, auth)
+            ?.getApolloClientWithHeader(auth)
 
         progressBar.visibility = View.VISIBLE
 
         client
-            ?.query(GetUserQuery())
-            ?.enqueue(object : ApolloCall.Callback<GetUserQuery.Data>() {
+            ?.query(GetIdAndTokenQuery(mLoginEditText.toString(), mPasswordEditText.toString()))
+            ?.enqueue(object : ApolloCall.Callback<GetIdAndTokenQuery.Data>() {
 
                 override fun onFailure(e: ApolloException) {
                     Log.e("ErrorQuery", e.toString())
                 }
 
-                override fun onResponse(response: Response<GetUserQuery.Data>) {
-                    val users = response.data!!.users
-                    if (users == null || response.hasErrors()) {
+                override fun onResponse(response: Response<GetIdAndTokenQuery.Data>) {
+                    val clients = response.data!!.authClient
+                    if (clients == null || response.hasErrors()) {
                         Log.e("ErrorResponse", response.toString())
                     } else {
-                        for (user in users) {
-                            runOnUiThread {
-                                mPasswordTextView.text = user!!.name
-                                mLoginTextView.text = user.email
-
-                            }
-                            if (user != null) {
-                                user.name?.let { Log.e("Log", it) }
-                                user.email?.let { Log.e("Log", it) }
-                            }
+                        for (client in clients) {
+                            mLoginTextView.text = client!!.token.toString()
+                            mPasswordTextView.text = client.id.toString()
                         }
                     }
                 }
-
-
             })
         progressBar.visibility = View.GONE
     }
-
-
 }

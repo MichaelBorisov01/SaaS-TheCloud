@@ -10,9 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CsqAndroidClient"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LoginActivity"></activity>
 
-        <activity android:name=".CalendarActivity">
+        <activity android:name=".CalendarActivity" />
+        <activity android:name=".LoginActivity" />
+
+        <activity android:name=".Navigation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

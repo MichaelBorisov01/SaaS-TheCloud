@@ -6,17 +6,247 @@
     android:layout_height="match_parent"
     tools:context=".ui.cabinet.CabinetFragment">
 
-    <TextView
-        android:id="@+id/text_cabinet"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/surname_et_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="80dp"
+                android:layout_marginBottom="25dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="textCapWords"
+                android:labelFor="@id/surname_tv_cab"
+                app:layout_constraintBottom_toTopOf="@+id/name_et_cab"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <EditText
+                android:id="@+id/name_et_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="80dp"
+                android:layout_marginBottom="25dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="textCapWords"
+                android:labelFor="@+id/name_cab"
+                app:layout_constraintBottom_toTopOf="@+id/patronymic_et_cab"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <ImageView
+                android:id="@+id/user_photo_cab"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:contentDescription="@string/user_photo_desc"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/surname_head_tv_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="25dp"
+                android:text="@string/surname"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/name_head_tv_cab"
+                app:layout_constraintStart_toEndOf="@+id/user_photo_cab"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/name_head_tv_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginBottom="25dp"
+                android:text="@string/name"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/patronymic_head_tv_cab"
+                app:layout_constraintStart_toEndOf="@+id/user_photo_cab" />
+
+            <TextView
+                android:id="@+id/patronymic_head_tv_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginBottom="120dp"
+                android:text="@string/patronymic"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/email_et_cab"
+                app:layout_constraintStart_toEndOf="@+id/user_photo_cab" />
+
+            <TextView
+                android:id="@+id/email_head_tv_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/Email"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_photo_cab" />
+
+            <TextView
+                android:id="@+id/phone_head_tv_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/Phone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/email_head_tv_cab" />
+
+            <TextView
+                android:id="@+id/user_email_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/email"
+                app:layout_constraintStart_toEndOf="@+id/email_head_tv_cab"
+                app:layout_constraintTop_toBottomOf="@+id/user_photo_cab" />
+
+            <TextView
+                android:id="@+id/user_phone_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/phone"
+                app:layout_constraintStart_toEndOf="@+id/phone_head_tv_cab"
+                app:layout_constraintTop_toBottomOf="@+id/user_email_cab" />
+
+            <TextView
+                android:id="@+id/email_tv_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="45dp"
+                android:text="@string/email"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/phone_tv_cab"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/phone_tv_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="45dp"
+                android:text="@string/phone"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/surname_tv_cab"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/surname_tv_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="45dp"
+                android:text="@string/surname"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/name_tv_cab"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/name_tv_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="45dp"
+                android:text="@string/name"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/patronymic_tv_cab"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/patronymic_tv_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginBottom="75dp"
+                android:text="@string/patronymic"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/email_et_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="80dp"
+                android:layout_marginBottom="25dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                app:layout_constraintBottom_toTopOf="@+id/phone_et_cab"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <EditText
+                android:id="@+id/phone_et_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="80dp"
+                android:layout_marginBottom="25dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:hint="@string/phone_hint"
+                android:inputType="phone"
+                app:layout_constraintBottom_toTopOf="@+id/surname_et_cab"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <EditText
+                android:id="@+id/patronymic_et_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="80dp"
+                android:layout_marginBottom="15dp"
+                android:autofillHints=""
+                android:ems="10"
+                android:inputType="textCapWords"
+                android:labelFor="@+id/patronymic_tv_cab"
+                app:layout_constraintBottom_toTopOf="@+id/save_but_cab"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <Button
+                android:id="@+id/save_but_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="108dp"
+                android:layout_marginEnd="108dp"
+                android:layout_marginBottom="5dp"
+                android:text="@string/save"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/history_but_cab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="20dp"
+                android:text="@string/record_history"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/patronymic_head_tv_cab" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

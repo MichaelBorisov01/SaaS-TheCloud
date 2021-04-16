@@ -1,0 +1,7 @@
+query getIdAndToken($authClientEmail: String!, $authClientPassword: String!) {
+    authClient(email: $authClientEmail, password: $authClientPassword) {
+        id
+        token
+    }
+}
+

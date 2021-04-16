@@ -16,6 +16,11 @@
         },
         {
           "kind": "SCALAR",
+          "name": "Float",
+          "description": "Built-in Float"
+        },
+        {
+          "kind": "SCALAR",
           "name": "Int",
           "description": "Built-in Int"
         },
@@ -29,7 +34,78 @@
           "name": "Mutation",
           "fields": [
             {
-              "name": "createUser",
+              "name": "deleteUser",
+              "description": "Удаление пользователя.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "updateUser",
+              "description": "Изменение данных пользователя.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "email",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "password",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "phoneNum",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "user"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "clientRegistration",
+              "description": "Регистрация клиента.",
               "args": [
                 {
                   "name": "email",
@@ -62,7 +138,660 @@
                   }
                 },
                 {
-                  "name": "isAdmin",
+                  "name": "phoneNum",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "sex",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "birthDate",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "client"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "deleteClient",
+              "description": "Удаление клиента.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "updateClient",
+              "description": "Изменение полей клиента.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "email",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "password",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "phoneNum",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "sex",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "birthDate",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "client"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "createOrg",
+              "description": "Создание организации.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "category",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "logoUrl",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "organization"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "deleteOrg",
+              "description": "Удаление организации.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "updateOrg",
+              "description": "Изменение полей организации.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "category",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "logoUrl",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "organization"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "addOrgToClient",
+              "description": "Добавление организации к клиенту.",
+              "args": [
+                {
+                  "name": "clientId",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "orgId",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "orgClient"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "deleteOrgFromClient",
+              "description": "Удаление организации у клиента.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "createBranch",
+              "description": "Создание филиала.",
+              "args": [
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "country",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "city",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "address",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "gmt",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "phoneNum",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "orgId",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "branch"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "deleteBranch",
+              "description": "Удаление организации.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "updateBranch",
+              "description": "Изменение полей филиала.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "country",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "city",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "address",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "gmt",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "phoneNum",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "branch"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "createCategory",
+              "description": "Добавление новой категории услуг.",
+              "args": [
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "sex",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "orgId",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "category"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "deleteCategory",
+              "description": "Добавление категории.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "updateCategory",
+              "description": "Изменение категории.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "sex",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "category"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "addCategoryToBranch",
+              "description": "Добавление категории к филиалу.",
+              "args": [
+                {
+                  "name": "branchId",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "categoryId",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "catBranch"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "deleteCategoryFromBranch",
+              "description": "Удаление категории у филиала.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "createService",
+              "description": "Создание услуги.",
+              "args": [
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "picUrl",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "costMin",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Float"
+                    }
+                  }
+                },
+                {
+                  "name": "costMax",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Float"
+                    }
+                  }
+                },
+                {
+                  "name": "description",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "group",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "onlineReg",
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
@@ -72,7 +801,471 @@
                   }
                 },
                 {
-                  "name": "owner",
+                  "name": "schedule",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "JSON"
+                    }
+                  }
+                },
+                {
+                  "name": "categoryId",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "service"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "deleteService",
+              "description": "Удаление услуги.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "updateService",
+              "description": "Изменение услуги.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "picUrl",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "costMin",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Float"
+                  }
+                },
+                {
+                  "name": "costMax",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Float"
+                  }
+                },
+                {
+                  "name": "description",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "group",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "onlineReg",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Boolean"
+                  }
+                },
+                {
+                  "name": "schedule",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "JSON"
+                  }
+                },
+                {
+                  "name": "categoryId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "service"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "createExec",
+              "description": "Назначение сотрудника на исполнение услуги.",
+              "args": [
+                {
+                  "name": "serviceId",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "employeeId",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "serviceTime",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "execution"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "deleteExec",
+              "description": "Удаление сотрудника с услуги.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "updateExec",
+              "description": "Обновление времени, которое потребуется на исполнение услуги сотрудником.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "serviceTime",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "execution"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "createEmployee",
+              "description": "Добавление нового сотрудника.",
+              "args": [
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "phoneNum",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "contacts",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "JSON"
+                  }
+                },
+                {
+                  "name": "photoUrl",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "description",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "schedule",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "JSON"
+                  }
+                },
+                {
+                  "name": "positionId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "branchId",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "employee"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "deleteEmployee",
+              "description": "Удаление сотрудника.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "updateEmployee",
+              "description": "Обновления данных сотрудника.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "phoneNum",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "contacts",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "JSON"
+                  }
+                },
+                {
+                  "name": "photoUrl",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "description",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "String"
+                  }
+                },
+                {
+                  "name": "schedule",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "JSON"
+                  }
+                },
+                {
+                  "name": "positionId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "branchId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "employee"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "createPosition",
+              "description": "Добавление должности.",
+              "args": [
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "position"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "deletePosition",
+              "description": "Удаление должности.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "updatePosition",
+              "description": "Изменение названия у должности.",
+              "args": [
+                {
+                  "name": "id",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                },
+                {
+                  "name": "name",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "position"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "createAppointment",
+              "description": "Создание записи на услугу.",
+              "args": [
+                {
+                  "name": "serviceId",
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
@@ -92,22 +1285,32 @@
                   }
                 },
                 {
-                  "name": "params",
+                  "name": "employeeId",
                   "type": {
                     "kind": "SCALAR",
-                    "name": "JSON"
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "appointmentDate",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
                   }
                 }
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "users"
+                "name": "appointment"
               },
               "isDeprecated": false
             },
             {
-              "name": "deleteUser",
-              "description": "создание пользователя",
+              "name": "deleteAppointment",
+              "description": "Удаление записи на услугу.",
               "args": [
                 {
                   "name": "id",
@@ -124,8 +1327,8 @@
               "isDeprecated": false
             },
             {
-              "name": "updateUser",
-              "description": "удаление пользователя",
+              "name": "updateAppointment",
+              "description": "Обновление времени и/или сотрудника, который будет предоставлять услугу.",
               "args": [
                 {
                   "name": "id",
@@ -138,44 +1341,23 @@
                   }
                 },
                 {
-                  "name": "email",
+                  "name": "employeeId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "appointmentDate",
                   "type": {
                     "kind": "SCALAR",
                     "name": "String"
-                  }
-                },
-                {
-                  "name": "password",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String"
-                  }
-                },
-                {
-                  "name": "name",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "String"
-                  }
-                },
-                {
-                  "name": "isAdmin",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean"
-                  }
-                },
-                {
-                  "name": "params",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "JSON"
                   }
                 }
               ],
               "type": {
                 "kind": "OBJECT",
-                "name": "users"
+                "name": "appointment"
               },
               "isDeprecated": false
             }
@@ -187,28 +1369,16 @@
           "name": "Query",
           "fields": [
             {
-              "name": "users",
-              "args": [],
-              "type": {
-                "kind": "LIST",
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "users"
-                }
-              },
-              "isDeprecated": false
-            },
-            {
               "name": "user",
-              "description": " a list of users",
+              "description": "Получение данных о пользователе, по идентификатору",
               "args": [
                 {
-                  "name": "email",
+                  "name": "userId",
                   "type": {
                     "kind": "NON_NULL",
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "String"
+                      "name": "Int"
                     }
                   }
                 }
@@ -217,13 +1387,14 @@
                 "kind": "LIST",
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "users"
+                  "name": "user"
                 }
               },
               "isDeprecated": false
             },
             {
-              "name": "auth",
+              "name": "authUser",
+              "description": "Авторизация пользователя в системе по паре: email и password",
               "args": [
                 {
                   "name": "email",
@@ -250,7 +1421,348 @@
                 "kind": "LIST",
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "users"
+                  "name": "user"
+                }
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "orgOnUser",
+              "description": "Получение данных пользователем, об организации",
+              "args": [
+                {
+                  "name": "orgId",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "organization"
+                }
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "branch",
+              "description": "Получение данных о филиале/филиалах.\nЕсли введено branchId - происходит выбор одного конкретного филиала.\nЕсли введено orgId - происходит выбор всех филиалов внутри конкретной организации.\nЕсли введено categoryId - происходит выбор всех филиалов в которых предоставляются услуги определенной категории.",
+              "args": [
+                {
+                  "name": "orgId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "branchId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "categoryId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "branch"
+                }
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "category",
+              "description": "Получение данных о категории/категориях.\nЕсли введено categoryId - происходит выбор одной конкретной категории.\nЕсли введено orgId - происходит выбор всех категорий внутри конкретной организации.\nЕсли введено branchId - происходит выбор всех категорий внутри конкретного филиала.",
+              "args": [
+                {
+                  "name": "categoryId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "branchId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "orgId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "category"
+                }
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "service",
+              "description": "Получение данных об услуги/услугах.\nЕсли введено categoryId - происходит выбор всех услуг внутри конкретной категории.\nЕсли введено serviceId - происходит выбор конкретной услуги.\nЕсли введено branchId - происходит выбор всех услуг  внутри конкретного филиала.",
+              "args": [
+                {
+                  "name": "categoryId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "serviceId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "employeeId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "service"
+                }
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "position",
+              "description": "Получение данных о должностях/должности.\nЕсли введено branchId - происходит выбор всех должностей внутри конкретного филиала.\nЕсли введено positionId - происходит выбор конкретной должности.\nЕсли введено orgId - происходит выбор всех должностей внутри конкретной организации.",
+              "args": [
+                {
+                  "name": "branchId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "positionId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "orgId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "position"
+                }
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "employee",
+              "description": "Получение данных о сотрудниках/сотруднике\nесли введено branchId - происходит выбор всех сотрудников внутри конкретного филиала\nесли введено employeeId - происходит выбор конкретной сотрудника\nесли введено positionId - происходит выбор всех сотрудников которые имеют определенную должность\nесли введено serviceId - происходит выбор всех сотрудников предостовляющих определенную услугу\nесли введено orgId - происходит выбор всех сотрудников внутри конкретной организации",
+              "args": [
+                {
+                  "name": "branchId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "employeeId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "positionId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "serviceId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "orgId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "employee"
+                }
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "appointment",
+              "description": "Получение данных о записи на услуги/записи на услугу, а так же просмотр всей информации по этим записям.\nЕсли введено appointmentId - происходит выбор конкретной записи на услугу.\nЕсли введено employeeId и serviceId - происходит выбор всех записей на услугу, которую выполнял опредленный сотрудник.\nЕсли введено clientId и serviceId - происходит выбор всех записей конкретного клиента на определенную услугу.\nЕсли введено employeeId и clientId - происходит выбор всех записей определенных клиенттов к определенному сотруднику.\nЕсли введено employeeId - происходит выбор всех записей к определенному сотруднику.\nЕсли введено clientId - то клиент может посмотреть все свои записи.\nЕсли введено serviceId - происходит выбор всех записей на конкретную услугу.",
+              "args": [
+                {
+                  "name": "serviceId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "employeeId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "clientId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "appointmentId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "appointment"
+                }
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "authClient",
+              "description": "Авторизация клиента в системе по паре: email и password",
+              "args": [
+                {
+                  "name": "email",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                },
+                {
+                  "name": "password",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "client"
+                }
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "client",
+              "description": "Получение данных о пользователе, по идентификатору",
+              "args": [
+                {
+                  "name": "clientId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "client"
+                }
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "orgOnClient",
+              "description": "Получение данных об организациях на которые подписан клиент, при аргументе clientId или о конкретной организации,\nесли отправить orgId.",
+              "args": [
+                {
+                  "name": "orgId",
+                  "type": {
+                    "kind": "SCALAR",
+                    "name": "Int"
+                  }
+                },
+                {
+                  "name": "clientId",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "Int"
+                    }
+                  }
+                }
+              ],
+              "type": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "organization"
                 }
               },
               "isDeprecated": false
@@ -934,7 +2446,242 @@
         },
         {
           "kind": "OBJECT",
-          "name": "users",
+          "name": "appointment",
+          "fields": [
+            {
+              "name": "id",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "serviceId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "clientId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "employeeId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "appointmentDate",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "serviceName",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "employeeName",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "clientName",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "branch",
+          "fields": [
+            {
+              "name": "id",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "name",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "country",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "city",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "address",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "gmt",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "phoneNum",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "orgId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "catBranch",
+          "fields": [
+            {
+              "name": "id",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "categoryId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "branchId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "category",
+          "fields": [
+            {
+              "name": "id",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "name",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "sex",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "orgId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "client",
           "fields": [
             {
               "name": "id",
@@ -973,16 +2720,7 @@
               "isDeprecated": false
             },
             {
-              "name": "isAdmin",
-              "args": [],
-              "type": {
-                "kind": "SCALAR",
-                "name": "Boolean"
-              },
-              "isDeprecated": false
-            },
-            {
-              "name": "dateCreate",
+              "name": "phoneNum",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -991,7 +2729,181 @@
               "isDeprecated": false
             },
             {
-              "name": "owner",
+              "name": "sex",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "birthDate",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "token",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "employee",
+          "fields": [
+            {
+              "name": "id",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "name",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "contacts",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "JSON"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "photoUrl",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "description",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "schedule",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "JSON"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "positionId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "branchId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "phoneNum",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "serviceTime",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "execution",
+          "fields": [
+            {
+              "name": "id",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "serviceId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "employeeId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "serviceTime",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "orgClient",
+          "fields": [
+            {
+              "name": "id",
               "args": [],
               "type": {
                 "kind": "SCALAR",
@@ -1009,11 +2921,246 @@
               "isDeprecated": false
             },
             {
-              "name": "params",
+              "name": "orgId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "organization",
+          "fields": [
+            {
+              "name": "id",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "name",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "category",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "logoUrl",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "position",
+          "fields": [
+            {
+              "name": "id",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "name",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "service",
+          "fields": [
+            {
+              "name": "id",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "name",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "picUrl",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "costMin",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "costMax",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Float"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "description",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "group",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "onlineReg",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Boolean"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "schedule",
               "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "JSON"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "categoryId",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "serviceTime",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            }
+          ],
+          "interfaces": []
+        },
+        {
+          "kind": "OBJECT",
+          "name": "user",
+          "fields": [
+            {
+              "name": "id",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "Int"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "email",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "password",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "name",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "phoneNum",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
+              },
+              "isDeprecated": false
+            },
+            {
+              "name": "token",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String"
               },
               "isDeprecated": false
             }

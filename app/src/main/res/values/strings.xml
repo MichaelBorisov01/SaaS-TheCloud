@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="tv_head">TheCloud.ru</string>
-
-    <string name="total">Итого:</string>
+    <string name="tv_head">All services</string>
 
     <string name="login">Логин</string>
     <string name="password">Пароль</string>
@@ -13,14 +11,17 @@
     <string name="profile_edit">Изменение профиля</string>
     <string name="profile_inf">Информация о профиле</string>
 
-
     <string name="surname">Фамилия</string>
+    <string name="name">Имя</string>
+    <string name="patronymic">Отчество</string>
     <string name="fio">ФИО</string>
     <string name="city">Город</string>
-    <string name="address">Адресс</string>
+    <string name="address">Адрес</string>
     <string name="organization">Организация</string>
     <string name="phone">Телефон</string>
     <string name="email">Email</string>
+    <string name="Phone">Телефон:</string>
+    <string name="Email">Email:</string>
     <string name="password_confirmation">Подтверждение пароля</string>
     <string name="password_old">Старый пароль</string>
     <string name="password_new">Новый пароль</string>
@@ -35,5 +36,16 @@
     <string name="title_company">Компании</string>
     <string name="title_cabinet">Личный кабинет</string>
     <string name="drag_me">Drag me</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="user_photo_desc">Фото пользователя</string>
+    <string name="record_history">История записей</string>
+    <string name="photo_com">Изображение компании</string>
+    <string name="user_calendar">Мой календарь</string>
+    <string name="action_today">Сегодня</string>
+    <string name="action_day_view">1 день</string>
+    <string name="action_three_day_view">3 дня</string>
+    <string name="action_week_view">Неделя</string>
+    <string name="phone_hint">8 - -</string>
+
 
 </resources>
