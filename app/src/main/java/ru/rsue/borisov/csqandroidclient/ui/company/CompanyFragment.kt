@@ -35,7 +35,7 @@ class CompanyFragment : Fragment() {
             AppDatabase::class.java, "UserInf"
         ).build()
 
-        val userDao = db.userDao()
+        val userDao = db.clientDao()
         //val userId: UserInf = userDao.getUserId()
         //  val userToken: UserInf = userDao.getUserToken()
 
@@ -99,7 +99,7 @@ class CompanyFragment : Fragment() {
         class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
             var companyName: TextView? = null
             init {
-                companyName = itemView?.findViewById(R.id.name_com)
+                companyName = itemView?.findViewById(R.id.name_company)
             }
         }
     }

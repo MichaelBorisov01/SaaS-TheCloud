@@ -11,13 +11,10 @@
     android:paddingBottom="8dp">
 
     <TextView
-        android:id="@+id/name_com"
+        android:id="@+id/name_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="@string/title_company"
+        android:text="company"
         app:drawableStartCompat="@android:mipmap/sym_def_app_icon" />
-
-
-
 </LinearLayout>

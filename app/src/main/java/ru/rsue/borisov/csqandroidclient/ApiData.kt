@@ -14,7 +14,6 @@ class NetworkService {
             .Builder()
             .build()
 
-
         return ApolloClient.builder()
             .serverUrl(BASE_URL)
             .okHttpClient(okHttp)

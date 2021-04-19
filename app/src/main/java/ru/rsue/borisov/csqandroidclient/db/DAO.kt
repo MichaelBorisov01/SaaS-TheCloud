@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 
 
 @Dao
-interface UserDao {
+interface ClientDao {
 
    /* @Query("SELECT id FROM UserInf")
     fun getUserId(): UserInf
