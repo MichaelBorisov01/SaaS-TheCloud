@@ -1,7 +1,7 @@
 package ru.rsue.borisov.csqandroidclient
 
 
-import GetIdAndTokenQuery
+//import GetIdAndTokenQuery
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -15,6 +15,7 @@ import com.apollographql.apollo.ApolloCall
 import com.apollographql.apollo.api.Response
 import com.apollographql.apollo.exception.ApolloException
 import ru.rsue.borisov.csqandroidclient.db.AppDatabase
+import ru.rsue.borisov.csqandroidclient.db.ClientInf
 import ru.rsue.borisov.csqandroidclient.ui.user_calendar.NetworkService
 
 
@@ -39,27 +40,25 @@ class LoginActivity : AppCompatActivity() {
         mLoginTextView = findViewById(R.id.tv_login)
         mPasswordTextView = findViewById(R.id.tv_password)
 
-        get()
+
+        //get()
         val db = Room.databaseBuilder(
             applicationContext,
-            AppDatabase::class.java, "database-name"
+            AppDatabase::class.java, "ClientInf"
         ).build()
 
+        val client = ClientInf(1,"dffef")
         val userDao = db.userDao()
         //вставить id и token пользователя в БД
-        /*userDao.insertClientIdAndToken(
-
-            get()
-
-        )*/
+         userDao.insertClientIdAndToken(client)
     }
 
-    private fun get() {
+    /*private fun get() {
 
-        /* val token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBdXRoZW50aWNhdGlvbiIsIml" +
+        *//* val token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJBdXRoZW50aWNhdGlvbiIsIml" +
                  "zcyI6IkNsaWVudCIsImV4cCI6MTYxNzAxMzEyOSwiZW1haWwiOiJHYWNna292c2t5LmRhbmlsQG1" +
                  "haWwucnUifQ.Pz3hvbqrh1oqwGGD1WJ5s-dDNHRsR7gARwewHAJoDBlg4ZSEn9DS6Z_Ng3dwldar" +
-                 "RroxoCZlKKpqOB1YuNROYg"*/
+                 "RroxoCZlKKpqOB1YuNROYg"*//*
 
         val auth = "no"
 
@@ -89,5 +88,5 @@ class LoginActivity : AppCompatActivity() {
                 }
             })
         progressBar.visibility = View.GONE
-    }
+    }*/
 }

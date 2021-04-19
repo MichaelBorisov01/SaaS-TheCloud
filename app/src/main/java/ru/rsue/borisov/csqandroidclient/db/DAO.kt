@@ -17,7 +17,7 @@ interface UserDao {
 
 
     @Insert
-    fun insertClientIdAndToken(idAndToken: ClientInf)
+    fun insertClientIdAndToken(vararg client: ClientInf)
 
 
     /*  Используем возвращаемое значение типа Flow в описании метода,
